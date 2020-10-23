@@ -17,7 +17,7 @@ else
                   echo "adding new docker"
                   docker build -t node-web "$DIR/"
                   docker run -d -p $2:8080 -e EXPOSED_PORT=$2 node-web
-                  /usr/local/bin/consul services register -name=web -id=web${2} -port=${2}
+                  /usr/local/bin/consul services register -name=web -id=web${2} -port=${2} -address 192.168.1.111
                   ;;
                   "remove")
                   echo "removing docker"
